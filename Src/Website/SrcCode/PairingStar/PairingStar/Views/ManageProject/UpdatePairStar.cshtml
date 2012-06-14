@@ -1,0 +1,63 @@
+﻿@model PairingStar.Models.UpdatePairModel
+@{
+    ViewBag.Title = "UpdatePairStar";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Users").change(function () {
+            var strSelected = "";
+            $("#Users option:selected").each(function () {
+                strSelected += $(this)[0].value;
+            });
+            var url = "/ManageProject/UpdatePairStar/?pairName=" + strSelected;
+
+            window.location.href = url;            
+        });
+    });
+
+    var selectedPairname;
+    HighlightPairPanel = function (divObj) {
+        divObj.style.border = 'solid 3px red';
+    }
+
+    UnHighlightPairPanel = function (divObj) {
+        divObj.style.border = '1px solid #5c87b2';
+    }
+
+    SelectPairPanel = function (pairName) {
+        selectedPairname = pairName;
+    }
+
+</script>
+
+<h2>Update Pair Star</h2>
+
+@if (!ViewBag.UserInfoAvailable)
+{
+        @Html.DropDownList("Users", new SelectList((IEnumerable<string>)ViewBag.UserNames));
+
+}
+else
+{    
+   <div class="userpanel">
+    @Html.LabelFor(m => m.PairOne.UserName) :  @Model.PairOne.UserName<br/>
+    @Html.LabelFor(m => m.PairOne.Role) : @Model.PairOne.Role<br/>
+     @Html.LabelFor(m => m.PairOne.Gender) : @Model.PairOne.Gender<br/><br/>
+    <img src='@Url.Action("show", "ManageProject", new { id = @Model.PairOne.ID })' width="200px" height="200px" />
+   </div>
+    
+    <div style="float:left;margin-left:100px">
+
+    <h2>Select some one who U pair with today</h2>
+    @foreach (var otherUsers in @Model.OtherUsers)
+    {
+         <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName')"> 
+               @Html.LabelFor(m => otherUsers.UserName) :  @otherUsers.UserName <br/>
+                @Html.LabelFor(m => otherUsers.Role) : @otherUsers.Role<br/>
+                 @Html.LabelFor(m => otherUsers.Gender) : @otherUsers.Gender<br/><br/>
+                <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="50px" height="50px" />    
+         </div>
+    }
+    </div>
+}

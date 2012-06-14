@@ -1,0 +1,260 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_LogOnPartial.cshtml" caret="190" fromTop="5" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Home/f:About.cshtml" caret="0" fromTop="0" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:ChangePasswordSuccess.cshtml" caret="128" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:ChangePassword.cshtml" caret="307" fromTop="13" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:HomeController.cs" caret="392" fromTop="14" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Home/f:Index.cshtml" caret="205" fromTop="8" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/f:_ViewStart.cshtml" caret="52" fromTop="2" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:LogOn.cshtml" caret="186" fromTop="8" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:Register.cshtml" caret="2004" fromTop="34" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:AccountModels.cs" caret="2127" fromTop="35" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:Repository.cs" caret="1509" fromTop="17" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:UserModel.cs" caret="241" fromTop="10" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_Layout.cshtml" caret="69" fromTop="4" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:AccountController.cs" caret="704" fromTop="0" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:AddUser.cshtml" caret="519" fromTop="13" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:UpdatePairModel.cs" caret="185" fromTop="7" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="4942" fromTop="23" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="86" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6084" fromTop="29" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="596" fromTop="10" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_Layout.cshtml" caret="969" fromTop="20" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="4319" fromTop="18" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:AddUser.cshtml" caret="1454" fromTop="23" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1967" fromTop="19" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1725" fromTop="12" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1967" fromTop="20" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="2108" fromTop="21" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="5007" fromTop="35" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="499" fromTop="20" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="37" fromTop="0" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1047" fromTop="23" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="511" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1186" fromTop="21" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="418" fromTop="11" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="4573" fromTop="9" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1041" fromTop="28" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="388" fromTop="12" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="5283" fromTop="32" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:UpdatePairModel.cs" caret="185" fromTop="7" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2492" fromTop="35" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2152" fromTop="26" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="4942" fromTop="23" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="371" fromTop="13" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="86" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2132" fromTop="29" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6234" fromTop="36" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6049" fromTop="28" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1758" fromTop="21" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="844" fromTop="19" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="549" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="prop" priority="6" />
+      <Item value="string" priority="14" />
+      <Item value="public" priority="6" />
+      <Item value="enum" priority="0" />
+      <Item value="Required" priority="0" />
+      <Item value="return" priority="8" />
+      <Item value="foreach" priority="2" />
+      <Item value="in" priority="0" />
+      <Item value="Roles" priority="0" />
+      <Item value="Role`0" priority="0" />
+      <Item value="Role" priority="0" />
+      <Item value="List&lt;string&gt;" priority="1" />
+      <Item value="list" priority="0" />
+      <Item value="Display" priority="3" />
+      <Item value="Name" priority="3" />
+      <Item value="BadImageFormatException`0" priority="1" />
+      <Item value="HttpPost" priority="1" />
+      <Item value="ActionResult`0" priority="3" />
+      <Item value="FormCollection`0" priority="1" />
+      <Item value="RedirectToAction`0" priority="2" />
+      <Item value="viewResult" priority="0" />
+      <Item value="ViewData" priority="1" />
+      <Item value="null" priority="0" />
+      <Item value="HttpPostedFileBase" priority="0" />
+      <Item value="UserModel`0" priority="6" />
+      <Item value="if" priority="7" />
+      <Item value="ModelState" priority="2" />
+      <Item value="userModel" priority="10" />
+      <Item value="new" priority="19" />
+      <Item value="Byte`0" priority="1" />
+      <Item value="byte" priority="1" />
+      <Item value="uploadFile" priority="3" />
+      <Item value="int" priority="2" />
+      <Item value="ctor" priority="0" />
+      <Item value="using" priority="0" />
+      <Item value="queries" priority="0" />
+      <Item value="cmd" priority="3" />
+      <Item value="query" priority="0" />
+      <Item value="DataTable" priority="1" />
+      <Item value="DataTable`0" priority="0" />
+      <Item value="SQLiteDataAdapter`0" priority="0" />
+      <Item value="SQLiteDataAdapter" priority="0" />
+      <Item value="dataAdapter" priority="0" />
+      <Item value="conn" priority="1" />
+      <Item value="private" priority="1" />
+      <Item value="static" priority="0" />
+      <Item value="Repository`0" priority="4" />
+      <Item value="Repository" priority="1" />
+      <Item value="repo" priority="2" />
+      <Item value="repository" priority="1" />
+      <Item value="SQLiteParameter`0" priority="1" />
+      <Item value="SQLiteParameter" priority="3" />
+      <Item value="String" priority="0" />
+      <Item value="Value" priority="0" />
+      <Item value="View`0" priority="3" />
+      <Item value="Queryable`0" priority="0" />
+      <Item value="returnValue" priority="0" />
+      <Item value="isUserAlreadyExist" priority="0" />
+      <Item value="ear" priority="0" />
+      <Item value="as" priority="2" />
+      <Item value="Convert`0" priority="0" />
+      <Item value="executeScalar" priority="0" />
+      <Item value="GetType`0" priority="0" />
+      <Item value="UserModel" priority="1" />
+      <Item value="row" priority="0" />
+      <Item value="DataRow`0" priority="0" />
+      <Item value="userModels" priority="1" />
+      <Item value="dataTable" priority="0" />
+      <Item value="imageData" priority="0" />
+      <Item value="gender" priority="0" />
+      <Item value="File`0" priority="3" />
+      <Item value="System" priority="0" />
+      <Item value="IO" priority="0" />
+      <Item value="Open" priority="0" />
+      <Item value="fileStream" priority="2" />
+      <Item value="bytes" priority="0" />
+      <Item value="pairName" priority="1" />
+      <Item value="ViewBag" priority="2" />
+      <Item value="usernames" priority="2" />
+      <Item value="else" priority="0" />
+      <Item value="GetAllUserDetails`0" priority="0" />
+      <Item value="ValueProviderResult" priority="0" />
+      <Item value="List" priority="1" />
+      <Item value="allUserDetails" priority="2" />
+      <Item value="CreateLambda" priority="0" />
+      <Item value="model" priority="0" />
+      <Item value="UpdatePairModel`0" priority="0" />
+      <Item value="UpdatePairModel" priority="0" />
+      <Item value="pairModel" priority="1" />
+      <Item value="pairOne" priority="2" />
+      <Item value="String`0" priority="0" />
+      <Item value="IEnumerable" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Enum">
+      <Item value="GetNames`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="AddRange`0" priority="1" />
+      <Item value="AsEnumerable`1" priority="0" />
+      <Item value="Add`0" priority="0" />
+      <Item value="FirstOrDefault`1" priority="0" />
+      <Item value="Insert`0" priority="0" />
+      <Item value="Except`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ViewResult">
+      <Item value="Model" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelStateDictionary">
+      <Item value="IsValid" priority="0" />
+      <Item value="AddModelError`0" priority="0" />
+      <Item value="SetModelValue`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:PairingStar.Models.UserModel">
+      <Item value="Photo" priority="4" />
+      <Item value="UserName" priority="5" />
+      <Item value="Role" priority="2" />
+      <Item value="Gender" priority="3" />
+      <Item value="ID" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpPostedFileBase">
+      <Item value="ContentLength" priority="1" />
+      <Item value="InputStream" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.Stream">
+      <Item value="Read`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteCommand">
+      <Item value="ExecuteNonQuery`0" priority="0" />
+      <Item value="Parameters" priority="0" />
+      <Item value="ExecuteScalar`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteDataAdapter">
+      <Item value="Fill`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteConnection">
+      <Item value="Close`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@PairingStar.Controllers.Repository">
+      <Item value="GetRepository`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:PairingStar.Controllers.Repository">
+      <Item value="ExecuteQuery`0" priority="0" />
+      <Item value="LoadData`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+      <Item value="IsNullOrEmpty`0" priority="0" />
+      <Item value="Empty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteParameterCollection">
+      <Item value="AddRange`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteParameter">
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Data.DbType">
+      <Item value="Binary" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToString`0" priority="0" />
+      <Item value="ChangeType`0" priority="0" />
+      <Item value="ToInt32`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="Rows" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.FilePathResult">
+      <Item value="ExecuteResult`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="Open`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileStream">
+      <Item value="Read`0" priority="0" />
+      <Item value="Length" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:PairingStar.Models.UpdatePairModel">
+      <Item value="PairOne" priority="0" />
+      <Item value="OtherUsers" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

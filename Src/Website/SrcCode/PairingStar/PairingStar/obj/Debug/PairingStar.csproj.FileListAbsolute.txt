@@ -1,0 +1,7 @@
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.dll
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.pdb
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\bin\EntityFramework.dll
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\bin\EntityFramework.xml
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\ResolveAssemblyReference.cache
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.dll
+D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.pdb

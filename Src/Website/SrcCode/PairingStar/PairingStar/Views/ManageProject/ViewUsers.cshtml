@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "View Users";
+}
+
+<h2>Users</h2>
+
+<div style="float:none">
+@foreach (PairingStar.Models.UserModel user in (List<PairingStar.Models.UserModel>)ViewData["Users"])
+{
+    <div class="userpanel"> 
+   @Html.LabelFor(m=>user.UserName) :  @user.UserName <br/>
+    @Html.LabelFor(m=>user.Role) : @user.Role<br/>
+     @Html.LabelFor(m=>user.Gender) : @user.Gender<br/><br/>
+    <img src='@Url.Action( "show", "ManageProject", new { id = user.ID } )' width="200px" height="200px" />
+    
+    </div>
+}
+
+</div>

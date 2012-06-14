@@ -1,0 +1,49 @@
+﻿@model PairingStar.Models.UserModel
+
+@{
+    ViewBag.Title = "Add a user detail for ur project.";
+}
+
+<h2>Add User</h2>
+
+@using (Html.BeginForm("AddUser", "ManageProject", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(false, "User creation is unsuccessful. Please correct the errors and try again.")
+    <div>
+        <fieldset>
+            <legend>User Information</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Role)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.Role, new SelectList((IEnumerable<string>)ViewData["Roles"],"Dev"))                
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Gender)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.Gender,new SelectList(new List<string>(){"Male","Female"},"Male"))               
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Photo) <i>Please upload photo of size 200px * 200px for better view</i>
+            </div>
+            <div class="editor-field">                                  
+                    <input type="file" name="uploadFile"/>   
+            </div>
+            <p>
+                <input type="submit" value="Add User" />
+            </p>
+        </fieldset>
+    </div>
+}

@@ -116,7 +116,7 @@ namespace PairingStar.Controllers
             {
                 var dataTable = Repository.GetRepository().LoadData("Select UserName from t_user");
                 var usernames = (from DataRow row in dataTable.Rows select row["UserName"] as string).ToList();
-                usernames.Insert(0,"Please select one pair");
+                usernames.Insert(0,"Please select one");
                 ViewBag.UserNames = usernames;
             }
             else
@@ -129,6 +129,43 @@ namespace PairingStar.Controllers
             return View(pairModel);
         }
 
+        public string UpdatePairStarData(string pairName, string secondPair, string date,string time,string overrideData)
+        {
+            var timeWorked = Convert.ToDouble(time);
+            var toOverride = Convert.ToBoolean(overrideData);
+            if(toOverride)
+            {
+                
+            }
+
+            var dataAlreadyAvail = Repository.GetRepository().LoadData(@"Select count(*) as PairCount,sum(pairtime) as TotalPairTime from t_pairingmatrix 
+                                                                where ((pairone='" + pairName + "' and pairtwo='" + secondPair + "') OR"+
+                                                                              " (pairone='" + secondPair+ "' and pairtwo='" + pairName+ "')) AND pairdate ='"+date+"'");
+            var pairCount = Convert.ToInt32(dataAlreadyAvail.Rows[0]["PairCount"]);
+            var totalPairTime = dataAlreadyAvail.Rows[0]["TotalPairTime"] == DBNull.Value ? 0 : Convert.ToInt32(dataAlreadyAvail.Rows[0]["TotalPairTime"]);
+            if (pairCount > 0)
+                return string.Format("The pair {0} and {1} have paired on {2} for {3}",pairName,secondPair,date,totalPairTime);
+
+            var pairOneExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select sum(pairtime) from t_pairingmatrix where (pairone='" +
+                                                                              pairName + "' OR pairtwo='" + pairName + "') AND pairdate='" +
+                                                                              date + "'");
+            if (pairOneExceededPairTime +timeWorked > 1.0)
+                return string.Format("The pair {0} has logged {1} on this day already.", pairName,
+                                     pairOneExceededPairTime);
+
+            var pairTwoExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select sum(pairtime) from t_pairingmatrix where (pairone='" +
+                                                                              secondPair + "' OR pairtwo='" + secondPair+ "') AND pairdate='" +
+                                                                              date + "'");
+            if (pairTwoExceededPairTime+timeWorked > 1.0)
+                return string.Format("The pair {0} has logged {1} on this day already.", secondPair,
+                                     pairTwoExceededPairTime);
+
+
+
+
+
+            return "Welcome "+pairName+secondPair+date+time;
+        }
         #endregion Update pair Star
 
 

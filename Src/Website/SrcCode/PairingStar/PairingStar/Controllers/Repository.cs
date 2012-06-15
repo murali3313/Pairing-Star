@@ -15,7 +15,7 @@ namespace PairingStar.Controllers
 
         private  Repository()
         {
-            connString = "Data Source=D:\\PairingStar\\Src\\Website\\Build\\DB\\PairingStar.db";
+            connString = "Data Source=D:\\PS\\Pairing-Star\\Src\\Website\\Build\\DB\\PairingStar.db";
         }
 
         public void ExecuteQuery(params string[] queries)

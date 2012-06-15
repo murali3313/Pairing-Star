@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "UpdatePairStar";
 }
-
+<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.11.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#Users").change(function () {
@@ -25,9 +25,55 @@
         divObj.style.border = '1px solid #5c87b2';
     }
 
-    SelectPairPanel = function (pairName) {
+    SelectPairPanel = function (pairName, divObj) {
         selectedPairname = pairName;
+        $(".userpanelpairs").css({ 'backgroundColor': '' });
+        divObj.style.backgroundColor = '#eeeeee';
     }
+
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+
+    updatePairDetails = function (overridedata) {        
+       
+        @{var pair=(Model.PairOne==null)?string.Empty:Model.PairOne.UserName;}
+       var pairOne='@pair'
+        var dateSelected=$("#datepicker").val();
+        var secondPair=selectedPairname;
+        var pairTime=$("input[name='pairedTime']:checked").val();
+        if(secondPair==undefined)
+        {
+        var isLonepair=confirm("Are you a lone pair?")
+            if(isLonepair)
+                secondPair=pairOne;
+            else             
+             return;
+        }
+
+        var pairingData={pairName:pairOne,secondPair:secondPair,date:dateSelected,time:pairTime,overrideData:overridedata};
+
+        $.ajax({
+          url: '/ManageProject/UpdatePairStarData/',
+          data:pairingData,
+          success: sucessDel,
+          error:function(){alert('failure')}        
+        });
+
+    }
+
+var  sucessDel=function(data){
+        if(data=='Success')
+        {
+            alert('Information is succesfully updated.')
+        }
+        else 
+        {
+        var isOverride=confirm(data+"Do you want to override?");
+            if(isOverride)updatePairDetails(true);
+        }
+    }
+
 
 </script>
 
@@ -48,16 +94,22 @@ else
    </div>
     
     <div style="float:left;margin-left:100px">
-
-    <h2>Select some one who U pair with today</h2>
+    <div style="clear:right;">
+    <h2 style="float:left;">Select some one who U pair with on </h2> 
+    <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@System.DateTime.Today.ToShortDateString()"/>
+    <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day <input name="pairedTime" type="radio" value="0.5" />Half day
+    <input type="button" value="Update" onclick="updatePairDetails();" />
+    </div>
+    <div style="float:left;clear:left;">
     @foreach (var otherUsers in @Model.OtherUsers)
     {
-         <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName')"> 
+         <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName',this)"> 
                @Html.LabelFor(m => otherUsers.UserName) :  @otherUsers.UserName <br/>
                 @Html.LabelFor(m => otherUsers.Role) : @otherUsers.Role<br/>
                  @Html.LabelFor(m => otherUsers.Gender) : @otherUsers.Gender<br/><br/>
                 <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="50px" height="50px" />    
          </div>
     }
+    </div>
     </div>
 }

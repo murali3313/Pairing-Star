@@ -344,7 +344,7 @@ select{width:200px;}
 
 .userpanelpairs
 {
-    width:100px;
+    width:120px;
     height:150px;
     border:1px solid #5c87b2;
     margin:2px;
@@ -353,4 +353,9 @@ select{width:200px;}
      border-radius: 4px;   
     -moz-border-radius: 4px;   
     -webkit-border-radius: 4px;
+}
+
+#ui-datepicker-div
+{
+    background-color:Black;
 }

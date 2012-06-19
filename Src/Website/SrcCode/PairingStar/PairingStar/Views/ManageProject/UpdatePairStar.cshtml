@@ -63,13 +63,13 @@
     }
 
 var  sucessDel=function(data){
-        if(data=='Success')
+        if(data=='success')
         {
             alert('Information is succesfully updated.')
         }
         else 
         {
-        var isOverride=confirm(data+"Do you want to override?");
+        var isOverride=confirm(data+" Do you want to override?");
             if(isOverride)updatePairDetails(true);
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace PairingStar.Controllers
         #region View Users
         public ActionResult ViewUsers()
         {
+            Session.Add("one",1);
             ViewData["Users"]=GetAllUserDetails();
             return View();
         }
@@ -40,6 +42,7 @@ namespace PairingStar.Controllers
 
         public ActionResult Show(int id)
         {
+
             var dataTable = Repository.GetRepository().LoadData("Select * from t_user where PK_ID=" + id);
             var imageData = dataTable.Rows[0]["Photo"] as byte[];
             var gender = dataTable.Rows[0]["Gender"] as string;
@@ -135,7 +138,8 @@ namespace PairingStar.Controllers
             var toOverride = Convert.ToBoolean(overrideData);
             if(toOverride)
             {
-                
+                UpdatePairInfo(pairName, secondPair, date, time);
+                return "success";
             }
 
             var dataAlreadyAvail = Repository.GetRepository().LoadData(@"Select count(*) as PairCount,sum(pairtime) as TotalPairTime from t_pairingmatrix 
@@ -144,30 +148,73 @@ namespace PairingStar.Controllers
             var pairCount = Convert.ToInt32(dataAlreadyAvail.Rows[0]["PairCount"]);
             var totalPairTime = dataAlreadyAvail.Rows[0]["TotalPairTime"] == DBNull.Value ? 0 : Convert.ToInt32(dataAlreadyAvail.Rows[0]["TotalPairTime"]);
             if (pairCount > 0)
-                return string.Format("The pair {0} and {1} have paired on {2} for {3}",pairName,secondPair,date,totalPairTime);
+                return string.Format("The pair {0} and {1} have paired on {2} for {3} day.",pairName,secondPair,date,totalPairTime);
 
-            var pairOneExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select sum(pairtime) from t_pairingmatrix where (pairone='" +
+            var pairOneExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select Coalesce(sum(pairtime),0) from t_pairingmatrix where (pairone='" +
                                                                               pairName + "' OR pairtwo='" + pairName + "') AND pairdate='" +
                                                                               date + "'");
             if (pairOneExceededPairTime +timeWorked > 1.0)
-                return string.Format("The pair {0} has logged {1} on this day already.", pairName,
+                return string.Format("The pair {0} has logged {1} day on this date already.", pairName,
                                      pairOneExceededPairTime);
 
-            var pairTwoExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select sum(pairtime) from t_pairingmatrix where (pairone='" +
+            var pairTwoExceededPairTime = Repository.GetRepository().ExecuteScalar<double>("Select Coalesce(sum(pairtime),0) from t_pairingmatrix where (pairone='" +
                                                                               secondPair + "' OR pairtwo='" + secondPair+ "') AND pairdate='" +
                                                                               date + "'");
             if (pairTwoExceededPairTime+timeWorked > 1.0)
-                return string.Format("The pair {0} has logged {1} on this day already.", secondPair,
+                return string.Format("The pair {0} has logged {1} day on this date already.", secondPair,
                                      pairTwoExceededPairTime);
 
 
 
 
 
-            return "Welcome "+pairName+secondPair+date+time;
+            UpdatePairInfo(pairName, secondPair, date, time);
+            return "success";
         }
+
+        private void UpdatePairInfo(string pairName, string secondPair, string date, string time)
+        {
+            double pairTime;
+            double.TryParse(time, out pairTime);
+            DeleteDataIfPairtimeExceedsOneDay(pairName, date, pairTime);
+            DeleteDataIfPairtimeExceedsOneDay(secondPair, date, pairTime);
+
+            var dataAlreadyAvail = Repository.GetRepository().ExecuteScalar<int>(@"Select count(*) as PairCount from t_pairingmatrix 
+                                                                where ((pairone='" + pairName + "' and pairtwo='" + secondPair + "') OR" +
+                                                                              " (pairone='" + secondPair + "' and pairtwo='" + pairName + "')) AND pairdate ='" + date + "'");
+            if (dataAlreadyAvail>0)
+            {
+                Repository.GetRepository().ExecuteQuery(@"update t_pairingmatrix set pairtime='" + time + "' from t_pairingmatrix "+  
+                                                                "where ((pairone='" + pairName + "' and pairtwo='" + secondPair + "') OR" +
+                                                                              " (pairone='" + secondPair + "' and pairtwo='" + pairName + "')) AND pairdate ='" + date + "'");
+            }
+            else
+            {
+                Repository.GetRepository().ExecuteQuery(string.Format("insert into t_pairingmatrix values(null,'{0}','{1}','{2}',{3})",pairName,secondPair,date,time));
+            }
+        }
+
+        private void DeleteDataIfPairtimeExceedsOneDay(string pairName, string date, double pairTime)
+        {
+            var onePairTime = Repository.GetRepository().ExecuteScalar<double>("Select Coalesce(sum(pairtime),0) from t_pairingmatrix where (pairone='" +
+                                                                                   pairName + "' OR pairtwo='" + pairName + "') AND pairdate='" +
+                                                                                   date + "'");
+
+            if(onePairTime+pairTime>1.0)
+            {
+                Repository.GetRepository().ExecuteQuery("Delete from t_pairingmatrix where (pairone='"+pairName+"' OR pairtwo='"+pairName+"') AND pairdate='"+date+"'");
+            }
+        }
+
         #endregion Update pair Star
 
+
+        #region View Statistics
+        public ActionResult ViewStatistics()
+        {
+            return View();
+        }
+        #endregion
 
     }
 }

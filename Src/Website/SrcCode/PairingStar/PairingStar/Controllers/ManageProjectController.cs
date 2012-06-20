@@ -14,11 +14,18 @@ namespace PairingStar.Controllers
     public class ManageProjectController : Controller
     {
 
-        #region View Users
+        //#region View Users
         public ActionResult ViewUsers()
         {
            ViewData["Users"]=GetAllUserDetails();
             return View();
+        }
+
+        public string DeleteUserData(string  userName)
+        {
+            Repository.GetRepository().ExecuteQuery("Delete from t_user where UserName='"+userName+"'");
+            Repository.GetRepository().ExecuteQuery("Delete from t_pairingmatrix where pairone='" + userName + "' OR pairtwo='" + userName+ "'");
+            return userName;
         }
 
         private List<UserModel> GetAllUserDetails()
@@ -124,7 +131,9 @@ namespace PairingStar.Controllers
             else
             {
                 var allUserDetails = GetAllUserDetails();
-                var pairOne = allUserDetails.FirstOrDefault(model => model.UserName == pairName);
+                var pairOne = allUserDetails.FirstOrDefault(model => model.UserName.ToUpper() == pairName.ToUpper());
+                if (pairOne == null)
+                    ViewBag.UserInfoAvailable = false;
                 pairModel.PairOne = pairOne;
                 pairModel.OtherUsers= allUserDetails.Except(new List<UserModel>() {pairOne});
             }
@@ -213,6 +222,30 @@ namespace PairingStar.Controllers
         {
             return View();
         }
+        #endregion
+
+
+        #region Update Pair Extn
+        public ActionResult UpdatePairStarExtn(string pairName)
+        {
+            if (string.IsNullOrEmpty(pairName))
+            {
+                return RedirectToAction("UpdatepairStar");
+            }
+            var allUserDetails = GetAllUserDetails();
+            var pairOne = allUserDetails.FirstOrDefault(model => model.UserName.ToUpper() == pairName.ToUpper());
+            if (pairOne == null)
+                return RedirectToAction("UpdatepairStar");
+
+            var pairModel = new UpdatePairModel
+                                {
+                                    PairOne = pairOne,
+                                    OtherUsers = allUserDetails.Except(new List<UserModel>() {pairOne})
+                                };
+
+            return View(pairModel);
+        }
+
         #endregion
 
     }

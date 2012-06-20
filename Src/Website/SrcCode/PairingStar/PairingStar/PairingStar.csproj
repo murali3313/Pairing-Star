@@ -107,6 +107,7 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\delete.png" />
     <Content Include="Images\female-silhouette.jpg" />
     <Content Include="Images\male-silhouette.jpg" />
     <Content Include="Scripts\jqplot.barRenderer.min.js" />
@@ -170,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ManageProject\ViewStatistics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageProject\UpdatePairStarExtn.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

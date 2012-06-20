@@ -9,59 +9,23 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_LogOnPartial.cshtml" caret="190" fromTop="5" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Home/f:About.cshtml" caret="0" fromTop="0" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:ChangePasswordSuccess.cshtml" caret="128" fromTop="6" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:ChangePassword.cshtml" caret="307" fromTop="13" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:HomeController.cs" caret="392" fromTop="14" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Home/f:Index.cshtml" caret="205" fromTop="8" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:LogOn.cshtml" caret="186" fromTop="8" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Account/f:Register.cshtml" caret="2004" fromTop="34" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:AccountModels.cs" caret="2127" fromTop="35" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:UserModel.cs" caret="241" fromTop="10" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:AccountController.cs" caret="704" fromTop="0" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Models/f:UpdatePairModel.cs" caret="185" fromTop="7" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="86" fromTop="6" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/f:_ViewStart.cshtml" caret="52" fromTop="2" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_Layout.cshtml" caret="516" fromTop="7" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/d:themes/d:base/f:jquery.ui.datepicker.css" caret="1276" fromTop="9" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6053" fromTop="17" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:Repository.cs" caret="1901" fromTop="17" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:AddUser.cshtml" caret="1635" fromTop="42" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="2407" fromTop="18" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="243" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1822" fromTop="22" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewStatistics.cshtml" caret="113" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3137" fromTop="23" />
     </RecentFiles>
     <RecentEdits>
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="371" fromTop="13" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewUsers.cshtml" caret="86" fromTop="6" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="633" fromTop="9" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:Repository.cs" caret="444" fromTop="17" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2707" fromTop="10" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6030" fromTop="16" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="173" fromTop="4" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:Shared/f:_Layout.cshtml" caret="299" fromTop="6" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="4140" fromTop="33" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6288" fromTop="29" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/f:Site.css" caret="6234" fromTop="25" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Content/d:themes/d:base/f:jquery.ui.datepicker.css" caret="1276" fromTop="9" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3348" fromTop="31" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2422" fromTop="19" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="5011" fromTop="11" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1179" fromTop="1" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1822" fromTop="14" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1957" fromTop="22" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2297" fromTop="30" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2164" fromTop="25" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1678" fromTop="20" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1538" fromTop="16" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="7911" fromTop="35" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="7909" fromTop="35" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="7117" fromTop="24" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="7734" fromTop="31" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="5803" fromTop="16" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="419" fromTop="18" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="1302" fromTop="27" />
-      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Controllers/f:ManageProjectController.cs" caret="2232" fromTop="28" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="492" fromTop="15" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="1881" fromTop="20" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewStatistics.cshtml" caret="419" fromTop="10" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:ViewStatistics.cshtml" caret="113" fromTop="6" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="736" fromTop="11" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="4314" fromTop="22" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3513" fromTop="22" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3523" fromTop="18" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2961" fromTop="22" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="2529" fromTop="10" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3633" fromTop="33" />
+      <File id="3DA744CA-6BE6-4D1B-8B86-A09E86B840A8/d:Views/d:ManageProject/f:UpdatePairStar.cshtml" caret="3137" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -78,11 +42,11 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="prop" priority="6" />
-      <Item value="string" priority="21" />
-      <Item value="public" priority="7" />
+      <Item value="string" priority="22" />
+      <Item value="public" priority="8" />
       <Item value="enum" priority="0" />
       <Item value="Required" priority="0" />
-      <Item value="return" priority="10" />
+      <Item value="return" priority="12" />
       <Item value="foreach" priority="2" />
       <Item value="in" priority="0" />
       <Item value="Roles" priority="0" />
@@ -94,7 +58,7 @@
       <Item value="Name" priority="3" />
       <Item value="BadImageFormatException`0" priority="1" />
       <Item value="HttpPost" priority="1" />
-      <Item value="ActionResult`0" priority="5" />
+      <Item value="ActionResult`0" priority="6" />
       <Item value="FormCollection`0" priority="1" />
       <Item value="RedirectToAction`0" priority="2" />
       <Item value="viewResult" priority="0" />
@@ -102,7 +66,7 @@
       <Item value="null" priority="0" />
       <Item value="HttpPostedFileBase" priority="0" />
       <Item value="UserModel`0" priority="6" />
-      <Item value="if" priority="11" />
+      <Item value="if" priority="13" />
       <Item value="ModelState" priority="2" />
       <Item value="userModel" priority="10" />
       <Item value="new" priority="19" />
@@ -123,7 +87,7 @@
       <Item value="conn" priority="1" />
       <Item value="private" priority="1" />
       <Item value="static" priority="0" />
-      <Item value="Repository`0" priority="6" />
+      <Item value="Repository`0" priority="8" />
       <Item value="Repository" priority="1" />
       <Item value="repo" priority="2" />
       <Item value="repository" priority="1" />
@@ -131,7 +95,7 @@
       <Item value="SQLiteParameter" priority="3" />
       <Item value="String" priority="0" />
       <Item value="Value" priority="0" />
-      <Item value="View`0" priority="4" />
+      <Item value="View`0" priority="5" />
       <Item value="Queryable`0" priority="0" />
       <Item value="returnValue" priority="0" />
       <Item value="isUserAlreadyExist" priority="0" />
@@ -153,10 +117,10 @@
       <Item value="Open" priority="0" />
       <Item value="fileStream" priority="2" />
       <Item value="bytes" priority="0" />
-      <Item value="pairName" priority="8" />
+      <Item value="pairName" priority="11" />
       <Item value="ViewBag" priority="2" />
       <Item value="usernames" priority="2" />
-      <Item value="else" priority="0" />
+      <Item value="else" priority="1" />
       <Item value="GetAllUserDetails`0" priority="0" />
       <Item value="ValueProviderResult" priority="0" />
       <Item value="List" priority="1" />
@@ -169,9 +133,9 @@
       <Item value="pairOne" priority="2" />
       <Item value="String`0" priority="0" />
       <Item value="IEnumerable" priority="0" />
-      <Item value="secondPair" priority="6" />
-      <Item value="date" priority="4" />
-      <Item value="time" priority="1" />
+      <Item value="secondPair" priority="9" />
+      <Item value="date" priority="7" />
+      <Item value="time" priority="5" />
       <Item value="var" priority="2" />
       <Item value="overrideData" priority="0" />
       <Item value="selecteddate" priority="0" />
@@ -184,6 +148,11 @@
       <Item value="timeWorked" priority="3" />
       <Item value="toOverride" priority="0" />
       <Item value="Session" priority="1" />
+      <Item value="try" priority="0" />
+      <Item value="out" priority="0" />
+      <Item value="pairOnePairTime" priority="0" />
+      <Item value="pairTime" priority="1" />
+      <Item value="HtmlHelper`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Enum">
       <Item value="GetNames`0" priority="0" />
@@ -230,15 +199,15 @@
       <Item value="Close`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@PairingStar.Controllers.Repository">
-      <Item value="GetRepository`0" priority="3" />
+      <Item value="GetRepository`0" priority="5" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:PairingStar.Controllers.Repository">
-      <Item value="ExecuteQuery`0" priority="0" />
+      <Item value="ExecuteQuery`0" priority="2" />
       <Item value="LoadData`0" priority="1" />
-      <Item value="ExecuteScalar`1" priority="1" />
+      <Item value="ExecuteScalar`1" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.String">
-      <Item value="Format`0" priority="2" />
+      <Item value="Format`0" priority="3" />
       <Item value="IsNullOrEmpty`0" priority="0" />
       <Item value="Empty" priority="0" />
     </ItemStatistics>
@@ -257,6 +226,7 @@
       <Item value="ToInt32`0" priority="1" />
       <Item value="ToDateTime`0" priority="0" />
       <Item value="ToBoolean`0" priority="0" />
+      <Item value="ToDouble`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.DataTable">
       <Item value="Rows" priority="2" />
@@ -280,6 +250,9 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.HttpSessionStateBase">
       <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Double">
+      <Item value="TryParse`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

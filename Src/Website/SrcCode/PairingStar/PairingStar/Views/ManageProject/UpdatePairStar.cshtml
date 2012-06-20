@@ -10,15 +10,18 @@
             $("#Users option:selected").each(function () {
                 strSelected += $(this)[0].value;
             });
-            var url = "/ManageProject/UpdatePairStar/?pairName=" + strSelected;
 
-            window.location.href = url;            
+
+            
+            var url = "../ManageProject/UpdatePairStar/?pairName=" + strSelected;
+
+            window.location.href =url;         
         });
     });
 
     var selectedPairname;
     HighlightPairPanel = function (divObj) {
-        divObj.style.border = 'solid 3px red';
+        divObj.style.border = 'solid 1px red';
     }
 
     UnHighlightPairPanel = function (divObj) {
@@ -54,10 +57,11 @@
         var pairingData={pairName:pairOne,secondPair:secondPair,date:dateSelected,time:pairTime,overrideData:overridedata};
 
         $.ajax({
-          url: '/ManageProject/UpdatePairStarData/',
+          url: '../UpdatePairStarData/',
           data:pairingData,
           success: sucessDel,
-          error:function(){alert('failure')}        
+          error:function(e){alert(e.responseText)},
+          cache: false        
         });
 
     }
@@ -76,8 +80,12 @@ var  sucessDel=function(data){
 
 
 </script>
-
-<h2>Update Pair Star</h2>
+<div style="float:left;">
+        <h2 style="float:left;"> Update Pair Star &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Select some one who U pair with on </h2> 
+        <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@System.DateTime.Today.ToShortDateString()"/>
+        <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day <input name="pairedTime" type="radio" value="0.5" />Half day
+        <input type="button" value="Update" onclick="updatePairDetails();" />
+    </div>
 
 @if (!ViewBag.UserInfoAvailable)
 {
@@ -86,21 +94,17 @@ var  sucessDel=function(data){
 }
 else
 {    
+    <div style="width:850px">
    <div class="userpanel">
     @Html.LabelFor(m => m.PairOne.UserName) :  @Model.PairOne.UserName<br/>
     @Html.LabelFor(m => m.PairOne.Role) : @Model.PairOne.Role<br/>
      @Html.LabelFor(m => m.PairOne.Gender) : @Model.PairOne.Gender<br/><br/>
     <img src='@Url.Action("show", "ManageProject", new { id = @Model.PairOne.ID })' width="200px" height="200px" />
-   </div>
+    </div>   
     
-    <div style="float:left;margin-left:100px">
-    <div style="clear:right;">
-    <h2 style="float:left;">Select some one who U pair with on </h2> 
-    <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@System.DateTime.Today.ToShortDateString()"/>
-    <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day <input name="pairedTime" type="radio" value="0.5" />Half day
-    <input type="button" value="Update" onclick="updatePairDetails();" />
-    </div>
-    <div style="float:left;clear:left;">
+    <div style="float:left;padding-left:30px">
+    
+    <div style="float:left;clear:left;width:550px">
     @foreach (var otherUsers in @Model.OtherUsers)
     {
          <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName',this)"> 
@@ -110,6 +114,7 @@ else
                 <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="50px" height="50px" />    
          </div>
     }
+    </div>
     </div>
     </div>
 }

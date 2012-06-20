@@ -17,8 +17,7 @@ namespace PairingStar.Controllers
         #region View Users
         public ActionResult ViewUsers()
         {
-            Session.Add("one",1);
-            ViewData["Users"]=GetAllUserDetails();
+           ViewData["Users"]=GetAllUserDetails();
             return View();
         }
 
@@ -46,8 +45,8 @@ namespace PairingStar.Controllers
             var dataTable = Repository.GetRepository().LoadData("Select * from t_user where PK_ID=" + id);
             var imageData = dataTable.Rows[0]["Photo"] as byte[];
             var gender = dataTable.Rows[0]["Gender"] as string;
-
-            var dir = Server.MapPath("/Images");
+            
+            var dir = Server.MapPath("~\\Images");
             if (imageData == null)
                 if (gender == "Male")
                 {
@@ -146,7 +145,7 @@ namespace PairingStar.Controllers
                                                                 where ((pairone='" + pairName + "' and pairtwo='" + secondPair + "') OR"+
                                                                               " (pairone='" + secondPair+ "' and pairtwo='" + pairName+ "')) AND pairdate ='"+date+"'");
             var pairCount = Convert.ToInt32(dataAlreadyAvail.Rows[0]["PairCount"]);
-            var totalPairTime = dataAlreadyAvail.Rows[0]["TotalPairTime"] == DBNull.Value ? 0 : Convert.ToInt32(dataAlreadyAvail.Rows[0]["TotalPairTime"]);
+            var totalPairTime = dataAlreadyAvail.Rows[0]["TotalPairTime"] == DBNull.Value ? 0 : Convert.ToDouble(dataAlreadyAvail.Rows[0]["TotalPairTime"]);
             if (pairCount > 0)
                 return string.Format("The pair {0} and {1} have paired on {2} for {3} day.",pairName,secondPair,date,totalPairTime);
 
@@ -184,7 +183,7 @@ namespace PairingStar.Controllers
                                                                               " (pairone='" + secondPair + "' and pairtwo='" + pairName + "')) AND pairdate ='" + date + "'");
             if (dataAlreadyAvail>0)
             {
-                Repository.GetRepository().ExecuteQuery(@"update t_pairingmatrix set pairtime='" + time + "' from t_pairingmatrix "+  
+                Repository.GetRepository().ExecuteQuery(@"update t_pairingmatrix set pairtime='" + time + "' "+  
                                                                 "where ((pairone='" + pairName + "' and pairtwo='" + secondPair + "') OR" +
                                                                               " (pairone='" + secondPair + "' and pairtwo='" + pairName + "')) AND pairdate ='" + date + "'");
             }

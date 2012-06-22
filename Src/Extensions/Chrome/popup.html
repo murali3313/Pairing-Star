@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" >
+	    $(document).ready(function () {
+	        var url = localStorage["PSUrl"];
+	        var userName = localStorage["UserName"];
+
+	        if (url == undefined || userName == undefined || url == "" || userName == "") {
+	            $("#PSNotConfigured").attr("style", "display:block");
+	            $("#PairingStarWindow").attr("style", "display:none");
+	            return;
+	        }
+	        var completeURL = url + "/?pairName=" + userName;
+	        $("#PairingStarWindow").attr("src", completeURL);
+	    });
+	</script>
+</head>	
+<body >
+<iframe id ="PairingStarWindow" width="270px" height="600px">
+</iframe>
+<div id="PSNotConfigured" style ="display:none;">
+<b>
+<i style="color:#009ad9">You have not configured your Pairing Star. Please click options in Chrome extensions page </i>
+</b>
+ 
+</div>
+</body>
+</html>

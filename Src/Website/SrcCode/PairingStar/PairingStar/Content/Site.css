@@ -342,6 +342,19 @@ select{width:200px;}
     -webkit-border-radius: 4px;
 }
 
+.userpanelextn
+{
+    width:70px;
+    height:90px;
+    border:1px solid #5c87b2;
+    margin:2px;
+    padding:3px;
+    float:left;
+     border-radius: 4px;   
+    -moz-border-radius: 4px;   
+    -webkit-border-radius: 4px;
+}
+
 .userpanelpairs
 {
     width:120px;
@@ -355,6 +368,18 @@ select{width:200px;}
     -webkit-border-radius: 4px;
 }
 
+.userpanelpairsextn
+{
+    width:70px;
+    height:90px;
+    border:1px solid #5c87b2;
+    margin:2px;
+    padding:3px;
+    float:left;
+     border-radius: 4px;   
+    -moz-border-radius: 4px;   
+    -webkit-border-radius: 4px;
+}
 #ui-datepicker-div
 {
     background-color:Black;

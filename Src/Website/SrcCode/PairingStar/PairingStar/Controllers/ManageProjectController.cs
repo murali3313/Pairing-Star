@@ -14,7 +14,7 @@ namespace PairingStar.Controllers
     public class ManageProjectController : Controller
     {
 
-        //#region View Users
+        #region View Users
         public ActionResult ViewUsers()
         {
            ViewData["Users"]=GetAllUserDetails();

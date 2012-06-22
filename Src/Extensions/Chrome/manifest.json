@@ -1,0 +1,10 @@
+{
+  "name": "Pairing Star",
+  "version": "1.0",
+  "manifest_version": 1,
+  "options_page": "options.html",
+  "description": "Extension to track Pairing statistics in an agile team",
+  "browser_action": { "default_icon": "star_small.jpg" , 
+					  "default_title": "Pairing Star", 
+					  "default_popup": "popup.html"   }
+}

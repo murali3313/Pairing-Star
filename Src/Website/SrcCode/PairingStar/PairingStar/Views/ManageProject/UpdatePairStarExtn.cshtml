@@ -13,7 +13,7 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")"></script>
 
 </head>
-<body style="background-color:white;margin:0px">
+<body style="background-color:white;margin:0px;color:#009ad9;font-size:10px;font-family:Verdana">
     <div class="page">
         
 @model PairingStar.Models.UpdatePairModel
@@ -24,11 +24,11 @@
 <script type="text/javascript">
     var selectedPairname;
     HighlightPairPanel = function (divObj) {
-        divObj.style.border = 'solid 1px red';
+        divObj.style.backgroundColor = '#dceafa';
     }
 
     UnHighlightPairPanel = function (divObj) {
-        divObj.style.border = '1px solid #5c87b2';
+          divObj.style.backgroundColor = '#fff';
     }
 
     SelectPairPanel = function (pairName, divObj) {
@@ -39,8 +39,8 @@
              return;
          }
         selectedPairname = pairName;
-        $(".userpanelpairs").css({ 'backgroundColor': '' });
-        divObj.style.backgroundColor = '#eeeeee';
+        $(".userpanelpairsextn").css({ 'border': 'solid 1px #5c87b2' });
+        divObj.style.border = 'solid 1px #a30303';
     }
 
     $(function () {
@@ -92,39 +92,33 @@ var  sucessDel=function(data){
 
 
 </script>
+  
+    <div style="width:240px;margin-top:10px;overflow-x:hidden;float:left;clear:left;" >
+    <input id="datepicker" readonly="readonly" type="text" style="width:60px;cursor:hand; height:10px;margin-left:4px;font-size:10px;" value="@System.DateTime.Today.ToShortDateString()"/>
+    <I style="padding-left:60px;" >Select your pair</I>
 
+    <br/> 
     <div style="float:left;">
-        <h2 style="float:left;padding-left:250px;">Select your pair</h2> 
-    </div>
-
-    <div style="width:530px;height:600px;overflow-y:scroll;overflow-x:hidden;float:left;clear:left;" >
-    <div style="float:left;">
-   <div class="userpanel">
-    @Html.LabelFor(m => m.PairOne.UserName) :  @Model.PairOne.UserName<br/>
-    @Html.LabelFor(m => m.PairOne.Role) : @Model.PairOne.Role<br/>
-     @Html.LabelFor(m => m.PairOne.Gender) : @Model.PairOne.Gender<br/><br/>
-    <img src='@Url.Action("show", "ManageProject", new { id = @Model.PairOne.ID })' width="200px" height="200px" />
+    
+   <div class="userpanelextn" style="color:#000">
+    @Model.PairOne.UserName<br/>    
+    <img src='@Url.Action("show", "ManageProject", new { id = @Model.PairOne.ID })' width="60px" height="60px" />
     </div>   
-        <div style="float:left;clear:left; width:200px;">
-        <br />
-        ON &nbsp; <input id="datepicker" readonly="readonly" type="text" style="width:100px;" value="@System.DateTime.Today.ToShortDateString()"/>
-        <br /><br />
-        <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day 
+        <div style="float:left;clear:left; width:130px;"><br />
+        <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day  <br />
         <input name="pairedTime" type="radio" value="0.5" />Half day <br /><br />
-        <input type="button" value="Update" onclick="updatePairDetails();" />
+        <input type="button" value="Update" style="background-color:#cde1fa;border:solid 1px #009ad9;font-size:10px;font-family:verdana "  onclick="updatePairDetails();" />
         </div>
     </div>
 
-    <div style="float:left;padding-left:30px">
+    <div style="float:left;">
     
-    <div style="float:left;clear:left;width:270px">
+    <div style="float:left;clear:left;width:85px;color:#000">
     @foreach (var otherUsers in @Model.OtherUsers)
     {
-         <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName',this)"> 
-               @Html.LabelFor(m => otherUsers.UserName) :  @otherUsers.UserName <br/>
-                @Html.LabelFor(m => otherUsers.Role) : @otherUsers.Role<br/>
-                 @Html.LabelFor(m => otherUsers.Gender) : @otherUsers.Gender<br/><br/>
-                <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="50px" height="50px" />    
+         <div class="userpanelpairsextn" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName',this)"> 
+                @otherUsers.UserName <br/>
+                <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="70px" height="70px" />    
          </div>
     }
     </div>

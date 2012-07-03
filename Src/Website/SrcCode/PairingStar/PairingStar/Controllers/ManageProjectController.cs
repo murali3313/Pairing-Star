@@ -142,6 +142,7 @@ namespace PairingStar.Controllers
 
         public string UpdatePairStarData(string pairName, string secondPair, string date,string time,string overrideData)
         {
+            
             var timeWorked = Convert.ToDouble(time);
             var toOverride = Convert.ToBoolean(overrideData);
             if(toOverride)
@@ -220,6 +221,8 @@ namespace PairingStar.Controllers
         #region View Statistics
         public ActionResult ViewStatistics()
         {
+            ViewBag.PairingDetails= Repository.GetRepository().LoadData("Select * from t_pairingmatrix").Rows.Cast<DataRow>()   ;
+
             return View();
         }
         #endregion
@@ -228,6 +231,7 @@ namespace PairingStar.Controllers
         #region Update Pair Extn
         public ActionResult UpdatePairStarExtn(string pairName)
         {
+            
             if (string.IsNullOrEmpty(pairName))
             {
                 return RedirectToAction("UpdatepairStar");

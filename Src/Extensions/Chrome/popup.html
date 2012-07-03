@@ -3,8 +3,9 @@
 <head>
     <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" >
+	var url;
 	    $(document).ready(function () {
-	        var url = localStorage["PSUrl"];
+	        url = localStorage["PSUrl"];
 	        var userName = localStorage["UserName"];
 
 	        if (url == undefined || userName == undefined || url == "" || userName == "") {
@@ -18,6 +19,10 @@
 	</script>
 </head>	
 <body >
+<div id="icoStar" style="position:absolute;left:230px"> 
+<img src="star_small.jpg" style="width:20px;height:20px;" onclick="chrome.tabs.create({url: url});"/>
+<img src="settings.png" style="width:20px;height:20px;"  onclick="chrome.tabs.create({url: '/options.html'});"/>
+</div>
 <iframe id ="PairingStarWindow" width="270px" height="600px">
 </iframe>
 <div id="PSNotConfigured" style ="display:none;">

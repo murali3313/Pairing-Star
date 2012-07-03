@@ -2,42 +2,66 @@
     ViewBag.Title = "ViewStatistics";
 }
 
-<h2>ViewStatistics</h2>
-
-<script type="text/javascript" src="../Scripts/jquery.jqplot.min.js"></script>
-<script type="text/javascript" src="../Scripts/jqplot.barRenderer.min.js"></script>
-<script type="text/javascript" src="../Scripts/jqplot.categoryAxisRenderer.min.js"></script>
-<script type="text/javascript" src="../Scripts/jqplot.pointLabels.min.js"></script>
-
-<div id="chart2" style="width:400px;height:400px;"> </div>
+<h2>View Statistics</h2>
 <script type="text/javascript">
-    $(document).ready(function () {
-        // For horizontal bar charts, x an y values must will be "flipped"
-        // from their vertical bar counterpart.
-        var plot2 = $.jqplot('chart2', [
-        [[2, 1], [4, 2], [6, 3], [3, 4]],
-        [[5, 1], [1, 2], [3, 3], [4, 4]],
-        [[4, 1], [7, 2], [1, 3], [2, 4]]], {
-            seriesDefaults: {
-                renderer: $.jqplot.BarRenderer,
-                // Show point labels to the right ('e'ast) of each bar.
-                // edgeTolerance of -15 allows labels flow outside the grid
-                // up to 15 pixels.  If they flow out more than that, they 
-                // will be hidden.
-                pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
-                // Rotate the bar shadow as if bar is lit from top right.
-                shadowAngle: 135,
-                // Here's where we tell the chart it is oriented horizontally.
-                rendererOptions: {
-                    barDirection: 'horizontal'
-                }
-            },
-            axes: {
-                yaxis: {
-                    renderer: $.jqplot.CategoryAxisRenderer
-                }
-            }
-        });
+    $(function () {
+        $("#tabs").tabs();
     });
+	</script>
+<style type="text/css">
+   .rawData td
+   {
+       width:150px;
+   }
+   .rawData .row
+   {
+       background-color:white;
+   }
+   .rawData .altrow
+   {
+       background-color:#dfdfdf;
+   }
+</style>
 
-</script>
+
+<div class="demo">
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Raw Data</a></li>
+		<li><a href="#tabs-2">Chart</a></li>
+		<li><a href="#tabs-3">Graph</a></li>
+	</ul>
+	<div id="tabs-1">
+		        <table class="rawData">        
+        <tr style="background-color:#5c87b2;color:White"><td>Pair One</td><td>Pair Two</td><td>Pair Date</td><td>Pair Time</td></tr>
+        @{var count=0;
+          var cssName="row";
+          }
+
+        @foreach (var pairingDetail in ViewBag.PairingDetails)
+        {
+            cssName =(count%2==0)?"row":"altrow";
+            count++;
+                  
+        <tr class="@cssName">
+        <td> @pairingDetail["pairone"]</td>
+        <td> @pairingDetail["pairtwo"]</td>
+        <td> @pairingDetail["pairdate"]</td>
+        <td> @pairingDetail["pairtime"]</td>
+        </tr>    
+        }
+        </table>       
+        
+	</div>
+	<div id="tabs-2">
+		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+	</div>
+	<div id="tabs-3">
+		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+	</div>
+</div>
+
+</div>
+

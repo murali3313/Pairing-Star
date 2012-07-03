@@ -7,8 +7,6 @@ D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar
 D:\PairingStar\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.pdb
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.dll
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.pdb
-D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\EntityFramework.dll
-D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\EntityFramework.xml
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\ResolveAssemblyReference.cache
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.dll
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.pdb

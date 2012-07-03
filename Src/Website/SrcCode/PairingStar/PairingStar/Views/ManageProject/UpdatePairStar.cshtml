@@ -89,7 +89,7 @@ else
 { 
     <div style="float:left;">
         <h2 style="float:left;"> Update Pair Star &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Select some one who U pair with on </h2> 
-        <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@System.DateTime.Today.ToShortDateString()"/>
+        <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@DateTime.Now.ToString("MM/dd/yyy", CultureInfo.InvariantCulture)"/>
         <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day <input name="pairedTime" type="radio" value="0.5" />Half day
         <input type="button" value="Update" onclick="updatePairDetails();" />
     </div>

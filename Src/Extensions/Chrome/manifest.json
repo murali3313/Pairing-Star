@@ -10,4 +10,5 @@
   "background": {
     "scripts": ["background.js"]},
 	"permissions": ["notifications","tabs"]
+	
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,6 +28,11 @@ namespace PairingStar
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture=new CultureInfo("en-US");
         }
 
         protected void Application_Start()

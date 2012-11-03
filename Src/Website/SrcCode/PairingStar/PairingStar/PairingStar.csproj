@@ -76,6 +76,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageProjectController.cs" />
+    <Compile Include="Models\PairCollatedInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -117,6 +118,7 @@
     <Content Include="Images\delete.png" />
     <Content Include="Images\female-silhouette.jpg" />
     <Content Include="Images\male-silhouette.jpg" />
+    <Content Include="Scripts\d3.v2.min.js" />
     <Content Include="Scripts\jqplot.barRenderer.min.js" />
     <Content Include="Scripts\jqplot.categoryAxisRenderer.min.js" />
     <Content Include="Scripts\jqplot.pointLabels.min.js" />

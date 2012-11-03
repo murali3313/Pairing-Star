@@ -7,7 +7,7 @@ namespace PairingStar.Controllers
 {
     public class Repository
     {
-        private static readonly String connString= string.Format("Data Source={0}Data\\PairingStar1.db",HttpContext.Current.Server.MapPath("..//"));
+        private static readonly String connString= string.Format("Data Source={0}Data\\PairingStar.db",HttpContext.Current.Server.MapPath("..//"));
             
 
         private static Repository _repo;

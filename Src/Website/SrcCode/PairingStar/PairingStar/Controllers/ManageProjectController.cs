@@ -219,12 +219,83 @@ namespace PairingStar.Controllers
 
 
         #region View Statistics
-        public ActionResult ViewStatistics()
+        public ActionResult ViewStatistics(bool? isAllData)
         {
-            ViewBag.PairingDetails= Repository.GetRepository().LoadData("Select * from t_pairingmatrix").Rows.Cast<DataRow>()   ;
+            var shouldShowAllData = isAllData.HasValue && isAllData.Value;
+            var dataRows = Repository.GetRepository().LoadData("Select * from t_pairingmatrix").Rows.Cast<DataRow>();
+            ViewBag.PairingDetails = dataRows;
+            var dataForPairing = dataRows;
+            if(!shouldShowAllData)
+            {
+                var dayBeforeTwoWeeks = System.DateTime.Now.Subtract(new TimeSpan(14, 0, 0, 0));
+
+                dataForPairing = dataRows.Where(row => Convert.ToDateTime(row["PAIRDATE"]) >= dayBeforeTwoWeeks);
+   
+            }
+            
+            var userArray = GetAllUserDetails().ToArray();
+
+            var collatedPairDetails = new List<PairCollatedInfo>();
+            var notPairedPeople = new List<PairCollatedInfo>();
+            var notLonePairedPeople = new List<PairCollatedInfo>();
+            var lonePairedPeople = new List<PairCollatedInfo>();
+            for (var i =0; i < userArray.Length; i++)
+            {
+                
+                for (var j = i; j < userArray.Length; j++)
+                {
+
+                    var pairOne = userArray[i];
+                    var pairTwo = userArray[j];
+                    var allRowsOfThisCombination = dataForPairing.Where(
+                        row => isThesePairsInAnyCombination(pairTwo, pairOne, row));
+                    var workedForDays = allRowsOfThisCombination.Sum(row => Convert.ToDouble(row["PAIRTIME"]));
+                    var pairCollatedInfo = new PairCollatedInfo() { FirstPair = pairOne, SecondPair = pairTwo, WorkedFor = workedForDays };
+                    if(workedForDays.Equals(0))
+                    {
+                        if(pairOne!=pairTwo)
+                        {
+                            notPairedPeople.Add(pairCollatedInfo);
+                        }
+                        else
+                        {
+                            notLonePairedPeople.Add(pairCollatedInfo);
+                        }
+                    }
+                    else
+                    {
+
+                        if (pairOne != pairTwo)
+                        {
+                            collatedPairDetails.Add(pairCollatedInfo);    
+
+                        }
+                        else
+                        {
+                            lonePairedPeople.Add(pairCollatedInfo);
+                        }
+
+                    }
+                    
+                }
+            }
+            collatedPairDetails = collatedPairDetails.OrderBy(info => info.WorkedFor).ToList();
+            ViewBag.SuggestionPairDetails= collatedPairDetails;
+            ViewBag.CollatedPairDetails = collatedPairDetails.OrderBy(info => info.WorkedFor).Reverse().ToList();
+            ViewBag.NotPairedInfo = notPairedPeople;
+            ViewBag.NotLonePairedInfo = notLonePairedPeople;
+            ViewBag.LonePairedInfo = lonePairedPeople;
+            ViewBag.ShowingAllData = shouldShowAllData;
 
             return View();
         }
+
+        private static bool isThesePairsInAnyCombination(UserModel pairTwo, UserModel pairOne, DataRow row)
+        {
+            return (Convert.ToString(row["PAIRONE"]) == pairOne.UserName && Convert.ToString(row["PAIRTWO"]) == pairTwo.UserName) || 
+                   (Convert.ToString(row["PAIRONE"]) == pairTwo.UserName && Convert.ToString(row["PAIRTWO"]) == pairOne.UserName);
+        }
+
         #endregion
 
 

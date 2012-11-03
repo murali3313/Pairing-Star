@@ -2,7 +2,19 @@
     ViewBag.Title = "ViewStatistics";
 }
 
-<h2>View Statistics</h2>
+<h2>View Statistics. </h2>
+@{
+    if (ViewBag.ShowingAllData)
+    {
+        <h6>Showing All Data. To see data for just past two weeks <a href="@Url.Action("ViewStatistics", "ManageProject", new {isAllData = false})">View</a></h6>
+
+    }
+    else
+    {
+        <h6>This data is for past two weeks. For all data click this link. <a href="@Url.Action("ViewStatistics", "ManageProject", new {isAllData = true})">View</a></h6>
+
+    }
+}
 <script type="text/javascript">
     $(function () {
         $("#tabs").tabs();
@@ -26,22 +38,138 @@
 
 <div class="demo">
 
-<div id="tabs">
+<div id="tabs" style="float: left;width:100%">
 	<ul>
-		<li><a href="#tabs-1">Raw Data</a></li>
-		<li><a href="#tabs-2">Chart</a></li>
+		<li><a href="#tabs-1">Pair Info</a></li>
+		<li><a href="#tabs-2">Raw Data</a></li>
 		<li><a href="#tabs-3">Graph</a></li>
 	</ul>
-	<div id="tabs-1">
-		        <table class="rawData">        
+    <div id="tabs-1">
+        <div style="float:left;clear:left;width:320px;border:solid 1px #567842"> 
+            <h4>Pair Matrix.</h4>
+            @foreach (var pairingInfo in @ViewBag.CollatedPairDetails)
+            {
+                <div style="float:left;clear:left;width:300px">
+                    <div class="userpanelpairsextn" style="float:left;" > 
+                        @pairingInfo.FirstPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.FirstPair.ID })' width="70px" height="70px" />    
+                    </div>
+                    <div style="float:left;margin-left:60px;margin-top: 50px; ">@pairingInfo.WorkedFor</div>
+             
+                    <div class="userpanelpairsextn" style="float:right;" > 
+                        @pairingInfo.SecondPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.SecondPair.ID })' width="70px" height="70px" />    
+                    </div>
+               
+                </div>
+                <br/>
+            }
+        
+        </div>
+        
+        <div style="float:left;width:320px;border:solid 1px #567842;margin-left:30px;">
+            <h4>Have not paired at all</h4>
+            
+            @foreach (var pairingInfo in @ViewBag.NotPairedInfo)
+            {
+                <div style="float:left;clear:left;width:300px">
+                    <div class="userpanelpairsextn" style="float:left;" > 
+                        @pairingInfo.FirstPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.FirstPair.ID })' width="70px" height="70px" />    
+                    </div>
+                    <div style="float:left;margin-left:60px;margin-top: 50px; ">@pairingInfo.WorkedFor</div>
+             
+                    <div class="userpanelpairsextn" style="float:right;" > 
+                        @pairingInfo.SecondPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.SecondPair.ID })' width="70px" height="70px" />    
+                    </div>
+               
+                </div>
+                <br/>
+            }
+        
+        </div>
+        
+        <div style="float:left;width:320px;border:solid 1px #567842;margin-left:30px;">
+            <h4>Lone Pairing people</h4> 
+           @foreach (var pairingInfo in @ViewBag.LonePairedInfo)
+           {
+                <div style="float:left;clear:left;width:300px">
+                    <div class="userpanelpairsextn" style="float:left;" > 
+                        @pairingInfo.FirstPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.FirstPair.ID })' width="70px" height="70px" />    
+                    </div>
+                    <div style="float:left;margin-left:60px;margin-top: 50px; ">@pairingInfo.WorkedFor</div>
+             
+                    <div class="userpanelpairsextn" style="float:right;" > 
+                        @pairingInfo.SecondPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.SecondPair.ID })' width="70px" height="70px" />    
+                    </div>
+               
+                </div>
+                <br/>
+           }
+        
+        </div>
+        
+        
+        <div style="float:left;width:320px;border:solid 1px #567842;margin-left:30px;">
+            <h4>Suggestions</h4>
+            
+            @foreach (var pairingInfo in @ViewBag.NotPairedInfo)
+            {
+                <div style="float:left;clear:left;width:300px">
+                    <div class="userpanelpairsextn" style="float:left;" > 
+                        @pairingInfo.FirstPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.FirstPair.ID })' width="70px" height="70px" />    
+                    </div>
+                    <div style="float:left;margin-left:60px;margin-top: 50px; ">@pairingInfo.WorkedFor</div>
+             
+                    <div class="userpanelpairsextn" style="float:right;" > 
+                        @pairingInfo.SecondPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.SecondPair.ID })' width="70px" height="70px" />    
+                    </div>
+               
+                </div>
+                <br/>
+            }
+            
+            
+            @foreach (var pairingInfo in @ViewBag.SuggestionPairDetails)
+            {
+                <div style="float:left;clear:left;width:300px">
+                    <div class="userpanelpairsextn" style="float:left;" > 
+                        @pairingInfo.FirstPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.FirstPair.ID })' width="70px" height="70px" />    
+                    </div>
+             
+                    <div class="userpanelpairsextn" style="float:right;margin-left: 50px" > 
+                        @pairingInfo.SecondPair.UserName <br/>
+                        <img src='@Url.Action("show", "ManageProject", new { id = pairingInfo.SecondPair.ID })' width="70px" height="70px" />    
+                    </div>
+               
+                </div>
+                <br/>
+            }
+        
+        
+        </div>
+        
+
+        
+        
+    </div>
+    <div id="tabs-2">
+        
+	        <table class="rawData">        
         <tr style="background-color:#5c87b2;color:White"><td>Pair One</td><td>Pair Two</td><td>Pair Date</td><td>Pair Time</td></tr>
-        @{var count=0;
-          var cssName="row";
+        @{var count = 0;
+          var cssName = "row";
           }
 
         @foreach (var pairingDetail in ViewBag.PairingDetails)
         {
-            cssName =(count%2==0)?"row":"altrow";
+            cssName = (count % 2 == 0) ? "row" : "altrow";
             count++;
                   
         <tr class="@cssName">
@@ -51,12 +179,8 @@
         <td> @pairingDetail["pairtime"]</td>
         </tr>    
         }
-        </table>       
-        
-	</div>
-	<div id="tabs-2">
-		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-	</div>
+        </table>               
+    </div>
 	<div id="tabs-3">
 		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
 		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>

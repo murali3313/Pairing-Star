@@ -380,6 +380,7 @@ select{width:200px;}
     -moz-border-radius: 4px;   
     -webkit-border-radius: 4px;
     cursor:hand;
+    font-size: 10px;
 }
 #ui-datepicker-div
 {

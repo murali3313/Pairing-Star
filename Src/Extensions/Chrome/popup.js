@@ -1,6 +1,9 @@
 var url;
 	    $(document).ready(function () {
-		url = localStorage["PSUrl"];
+		 $("#PSNotConfigured").attr("style", "display:block");
+		 $("#openSettings").click(openSettingsPage);
+			$("#openWebsite").click(openWebsite);
+		 url = localStorage["PSUrl"];
 	        var userName = localStorage["UserName"];
 
 	        if (url == undefined || userName == undefined || url == "" || userName == "") {
@@ -10,10 +13,8 @@ var url;
 	        }
 	        var completeURL = url + "/ManageProject/UpdatepairStarExtn?pairName=" + userName;
 			
-	        $("#PairingStarWindow").attr("src", completeURL);
+	        $("#PairingStarWindow").attr("src", completeURL);			
 			
-			$("#openSettings").click(openSettingsPage);
-			$("#openWebsite").click(openWebsite);
 	    });
 		
 

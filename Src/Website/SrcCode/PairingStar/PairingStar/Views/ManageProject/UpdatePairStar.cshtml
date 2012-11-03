@@ -1,4 +1,5 @@
-﻿@model PairingStar.Models.UpdatePairModel
+﻿@using System.Globalization
+@model PairingStar.Models.UpdatePairModel
 @{
     ViewBag.Title = "UpdatePairStar";
 }
@@ -10,10 +11,8 @@
             $("#Users option:selected").each(function () {
                 strSelected += $(this)[0].value;
             });
-
-
-            
-            var url = "../ManageProject/UpdatePairStar/?pairName=" + strSelected;
+            var urlForUpdatePairDetails = "@Url.Action("UpdatePairStar", "ManageProject")";
+            var url = urlForUpdatePairDetails+"/?pairName=" + strSelected;
 
             window.location.href =url;         
         });
@@ -22,11 +21,11 @@
     var selectedPairname;
     HighlightPairPanel = function (divObj) {
         divObj.style.border = 'solid 1px red';
-    }
+    };
 
     UnHighlightPairPanel = function (divObj) {
         divObj.style.border = '1px solid #5c87b2';
-    }
+    };
 
     SelectPairPanel = function (pairName, divObj) {
         selectedPairname = pairName;
@@ -38,45 +37,41 @@
         $("#datepicker").datepicker();
     });
 
-    updatePairDetails = function (overridedata) {        
-       
+    updatePairDetails = function (overridedata) {
+
         @{var pair=(Model.PairOne==null)?string.Empty:Model.PairOne.UserName;}
-       var pairOne='@pair'
-        var dateSelected=$("#datepicker").val();
-        var secondPair=selectedPairname;
-        var pairTime=$("input[name='pairedTime']:checked").val();
-        if(secondPair==undefined)
-        {
-        var isLonepair=confirm("Are you a lone pair?")
-            if(isLonepair)
-                secondPair=pairOne;
-            else             
-             return;
+        var pairOne = '@pair';
+        var dateSelected = $("#datepicker").val();
+        var secondPair = selectedPairname;
+        var pairTime = $("input[name='pairedTime']:checked").val();
+        if (secondPair == undefined) {
+            var isLonepair = confirm("Are you a lone pair?");
+            if (isLonepair)
+                secondPair = pairOne;
+            else
+                return;
         }
 
-        var pairingData={pairName:pairOne,secondPair:secondPair,date:dateSelected,time:pairTime,overrideData:overridedata};
+        var pairingData = { pairName: pairOne, secondPair: secondPair, date: dateSelected, time: pairTime, overrideData: overridedata };
 
         $.ajax({
-          url: '../UpdatePairStarData/',
-          data:pairingData,
-          success: sucessDel,
-          error:function(e){alert(e.responseText)},
-          cache: false        
+            url: '../UpdatePairStarData/',
+            data: pairingData,
+            success: sucessDel,
+            error: function (e) { alert(e.responseText); },
+            cache: false
         });
 
-    }
+    };
 
-var  sucessDel=function(data){
-        if(data=='success')
-        {
-            alert('Information is succesfully updated.')
+    var sucessDel = function (data) {
+        if (data == 'success') {
+            alert('Information is succesfully updated.');
+        } else {
+            var isOverride = confirm(data + " Do you want to override?");
+            if (isOverride) updatePairDetails(true);
         }
-        else 
-        {
-        var isOverride=confirm(data+" Do you want to override?");
-            if(isOverride)updatePairDetails(true);
-        }
-    }
+    };
 
 
 </script>

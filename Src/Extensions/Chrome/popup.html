@@ -1,27 +1,16 @@
 <!doctype html>
 <html>
 <head>
-    <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
-	<script type="text/javascript" >
-	var url;
-	    $(document).ready(function () {
-	        url = localStorage["PSUrl"];
-	        var userName = localStorage["UserName"];
-
-	        if (url == undefined || userName == undefined || url == "" || userName == "") {
-	            $("#PSNotConfigured").attr("style", "display:block");
-	            $("#PairingStarWindow").attr("style", "display:none");
-	            return;
-	        }
-	        var completeURL = url + "/?pairName=" + userName;
-	        $("#PairingStarWindow").attr("src", completeURL);
-	    });
-	</script>
+    <script  src="jquery-1.5.1.min.js"></script>
+	<script src="popup.js" ></script>
+	
 </head>	
 <body >
 <div id="icoStar" style="position:absolute;left:230px"> 
-<img src="star_small.jpg" style="width:20px;height:20px;" onclick="chrome.tabs.create({url: url});"/>
-<img src="settings.png" style="width:20px;height:20px;"  onclick="chrome.tabs.create({url: '/options.html'});"/>
+<img src="star_small.jpg" width="20px" height="20px"  id="openWebsite" />
+<img src="settings.png" width="20px" height="20px"  id="openSettings"/>
+</div>
+<div id="completeUrl">
 </div>
 <iframe id ="PairingStarWindow" width="270px" height="600px">
 </iframe>

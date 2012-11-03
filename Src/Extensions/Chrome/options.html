@@ -1,18 +1,2 @@
 <!doctype html><html><head>    <script type="text/javascript" src="jquery-1.5.1.min.js"></script>    
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            var PSUrl = localStorage["PSUrl"];
-            if (PSUrl != undefined) {
-                $("#txtUrl").val(PSUrl);
-            }
-            var UserName = localStorage["UserName"];
-            if (PSUrl != undefined) {
-                $("#txtUserName").val(UserName);
-            }			var notificationTime = localStorage["NotificationTime"];            if (notificationTime != undefined) {                $("#cmbNotification").val(notificationTime);            }			var AMPM = localStorage["AMPM"];            if (AMPM != undefined) {                $("#cmbAMPM").val(AMPM);            }								var IsNotifyEnabled = localStorage["IsNotifyEnabled"];            if (IsNotifyEnabled != undefined) {                $("#chkSwitchOffNotification").attr('checked',IsNotifyEnabled=='true'?true:false);            }					
-        });
-
-        function SaveChanges() {
-            localStorage["PSUrl"] = $("#txtUrl").val();
-            localStorage["UserName"] = $("#txtUserName").val();			localStorage["IsNotifyEnabled"] = $("#chkSwitchOffNotification").attr('checked');			localStorage["NotificationTime"] = $("#cmbNotification").val();			localStorage["AMPM"] = $("#cmbAMPM").val();			if(localStorage["AMPM"]=='AM')			{			  localStorage["NotificationHour"] = localStorage["NotificationTime"];			}			else			{			  localStorage["NotificationHour"]=localStorage["NotificationTime"]+12==24?0:12+localStorage["NotificationTime"];			 			}			chrome.extension.getBackgroundPage().initTimer();
-        }    </script></head><body>    <div>	<table>	<tr>	<td><b>Pairing Star URL:</b></td>  	<td><input id="txtUrl" type="text" /></td>	</tr>	<tr>	<td><b>User name:</b></td>  	<td><input id="txtUserName" type="text" /></td>	</tr>	<tr>	<td><b>Notification Time:</b></td>  	<td>	<select id="cmbNotification" >		 <option>1</option>		 <option>2</option>		 <option>3</option>		 <option>4</option>		 <option>5</option>		 <option>6</option>		 <option>7</option>		 <option>8</option>		 <option>9</option>		 <option>10</option>		 <option>11</option>		 <option>12</option>		 		 </select>		 <select id="cmbAMPM" >		 <option>AM</option>		 <option>PM</option>		 		 </select> 	</td>	</tr>	<tr>	<td>	Is Notification Enabled :	</td>	<td>	<input type="checkbox" id="chkSwitchOffNotification"/>	</td>	</tr>		</table>                                             		                            <br />         <input type="button" value="Save" onclick="SaveChanges()" />    </div></body></html>
+    <script type="text/javascript" src="options.js">        </script></head><body>    <div>	<table>	<tr>	<td><b>Pairing Star URL:</b></td>  	<td><input id="txtUrl" type="text" /></td>	</tr>	<tr>	<td><b>User name:</b></td>  	<td><input id="txtUserName" type="text" /></td>	</tr>	</table>         <br />         <input type="button" value="Save" id="saveChanges" />    </div></body></html>

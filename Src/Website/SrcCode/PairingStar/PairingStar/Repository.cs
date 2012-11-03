@@ -7,7 +7,9 @@ namespace PairingStar.Controllers
 {
     public class Repository
     {
-        readonly String connString;
+        private static readonly String connString= string.Format("Data Source={0}Data\\PairingStar1.db",HttpContext.Current.Server.MapPath("..//"));
+            
+
         private static Repository _repo;
         public static Repository GetRepository()
         {
@@ -16,7 +18,20 @@ namespace PairingStar.Controllers
 
         private  Repository()
         {
-            connString = string.Format("Data Source={0}Data\\PairingStar.db",HttpContext.Current.Server.MapPath("..//"));
+            try
+            {
+                var dataTable = LoadData("select * from t_user");
+
+            }
+            catch (Exception)
+            {
+
+                ExecuteQuery(
+                    "CREATE TABLE \"t_user\"(\"PK_ID\" INTEGER PRIMARY KEY AUTOINCREMENT,\"USERNAME\" TEXT NOT NULL collate nocase,\"ROLE\" TEXT NOT NULL DEFAULT \'DEV\' collate nocase,\"PHOTO\" BLOB,\"GENDER\" TEXT NOT NULL DEFAULT \'Male\' collate nocase)");
+                ExecuteQuery(
+                    "CREATE TABLE \"t_pairingmatrix\"(\"PK_ID\" INTEGER PRIMARY KEY AUTOINCREMENT,\"PAIRONE\" TEXT NOT NULL collate nocase,\"PAIRTWO\" TEXT NOT NULL collate nocase,\"PAIRDATE\" TEXT NOT NULL collate nocase,\"PAIRTIME\" REAL NOT NULL)");
+            }
+            
         }
 
         public void ExecuteQuery(params string[] queries)

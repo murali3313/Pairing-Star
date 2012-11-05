@@ -8,7 +8,7 @@ var url;
 
 	        if (url == undefined || userName == undefined || url == "" || userName == "") {
 	            $("#PSNotConfigured").attr("style", "display:block");
-	            $("#PairingStarWindow").attr("style", "display:none");
+	            $("#PairingStarWindow").attr("height", "0px");
 	            return;
 	        }
 	        var completeURL = url + "/ManageProject/UpdatepairStarExtn?pairName=" + userName;

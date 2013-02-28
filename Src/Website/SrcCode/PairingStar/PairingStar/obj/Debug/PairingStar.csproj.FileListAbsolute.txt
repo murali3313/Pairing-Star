@@ -10,3 +10,12 @@ D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.p
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\ResolveAssemblyReference.cache
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.dll
 D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.pdb
+D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\SQLite.Interop.dll
+D:\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\System.Data.SQLite.dll
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\SQLite.Interop.dll
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\System.Data.SQLite.dll
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.dll
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.pdb
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.dll
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\bin\PairingStar.pdb
+M:\PS\PS\Pairing-Star\Src\Website\SrcCode\PairingStar\PairingStar\obj\Debug\PairingStar.csprojResolveAssemblyReference.cache

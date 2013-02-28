@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "View Users";
+}
+
+<script type="text/javascript">
+
+    var Delete = function (userName) {
+        var deleteConfirm = confirm("Are you sure to delete user :" + userName);
+
+        if (deleteConfirm) {
+
+            var pairInfo = { userName: userName };
+
+            $.ajax({
+                url: '../ManageProject/DeleteUserData/',
+                data: pairInfo,
+                success: sucessDel,
+                error: function (e) { alert(e.responseText) },
+                cache: false
+            });
+            
+        }
+    }
+
+    var sucessDel = function (userName) {
+        $('#' + userName).animate({
+            opacity: 0.25,
+            left: '+=50',
+            height: 'toggle'
+        }, 3000);
+    }
+</script>
+
+<h2>Users</h2>
+
+<div style="float:none">
+@foreach (PairingStar.Models.UserModel user in (List<PairingStar.Models.UserModel>)ViewData["Users"])
+{
+    <div class="userpanel" id="@user.UserName"> 
+    <div>
+        <div style="width:175px;float:left;">    
+       @Html.LabelFor(m=>user.UserName) :  @user.UserName <br/>
+        @Html.LabelFor(m=>user.Role) : @user.Role<br/>
+         @Html.LabelFor(m=>user.Gender) : @user.Gender<br/><br/></div>
+         <div style="float:left;">
+         <img src="../Images/delete.png" style="float:left;" onclick="Delete('@user.UserName')" /></div>
+         </div>
+    <img src='@Url.Action( "show", "ManageProject", new { id = user.ID } )' width="200px" height="200px" />
+    
+    </div>
+}
+
+</div>

@@ -1,0 +1,115 @@
+﻿@using System.Globalization
+@model PairingStar.Models.UpdatePairModel
+@{
+    ViewBag.Title = "UpdatePairStar";
+}
+<script type="text/javascript" src="../../Scripts/jquery-ui-1.8.11.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Users").change(function () {
+            var strSelected = "";
+            $("#Users option:selected").each(function () {
+                strSelected += $(this)[0].value;
+            });
+            var urlForUpdatePairDetails = "@Url.Action("UpdatePairStar", "ManageProject")";
+            var url = urlForUpdatePairDetails+"/?pairName=" + strSelected;
+
+            window.location.href =url;         
+        });
+    });
+
+    var selectedPairname;
+    HighlightPairPanel = function (divObj) {
+        divObj.style.border = 'solid 1px red';
+    };
+
+    UnHighlightPairPanel = function (divObj) {
+        divObj.style.border = '1px solid #5c87b2';
+    };
+
+    SelectPairPanel = function (pairName, divObj) {
+        selectedPairname = pairName;
+        $(".userpanelpairs").css({ 'backgroundColor': '' });
+        divObj.style.backgroundColor = '#eeeeee';
+    }
+
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+
+    updatePairDetails = function (overridedata) {
+
+        @{var pair=(Model.PairOne==null)?string.Empty:Model.PairOne.UserName;}
+        var pairOne = '@pair';
+        var dateSelected = $("#datepicker").val();
+        var secondPair = selectedPairname;
+        var pairTime = $("input[name='pairedTime']:checked").val();
+        if (secondPair == undefined) {
+            var isLonepair = confirm("Are you a lone pair?");
+            if (isLonepair)
+                secondPair = pairOne;
+            else
+                return;
+        }
+
+        var pairingData = { pairName: pairOne, secondPair: secondPair, date: dateSelected, time: pairTime, overrideData: overridedata };
+
+        $.ajax({
+            url: '../UpdatePairStarData/',
+            data: pairingData,
+            success: sucessDel,
+            error: function (e) { alert(e.responseText); },
+            cache: false
+        });
+
+    };
+
+    var sucessDel = function (data) {
+        if (data == 'success') {
+            alert('Information is succesfully updated.');
+        } else {
+            var isOverride = confirm(data + " Do you want to override?");
+            if (isOverride) updatePairDetails(true);
+        }
+    };
+
+
+</script>
+@if (!ViewBag.UserInfoAvailable)
+{
+        @Html.DropDownList("Users", new SelectList((IEnumerable<string>)ViewBag.UserNames));
+
+}
+else
+{ 
+    <div style="float:left;">
+        <h2 style="float:left;"> Update Pair Star &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Select some one who U pair with on </h2> 
+        <input style="margin:20px 0px 0px 10px;" id="datepicker" readonly="readonly" type="text" value="@DateTime.Now.ToString("MM/dd/yyy", CultureInfo.InvariantCulture)"/>
+        <input type="radio" name="pairedTime" checked="checked"  value="1"/>Full day <input name="pairedTime" type="radio" value="0.5" />Half day
+        <input type="button" value="Update" onclick="updatePairDetails();" />
+    </div>
+   
+    <div style="width:850px">
+   <div class="userpanel">
+    @Html.LabelFor(m => m.PairOne.UserName) :  @Model.PairOne.UserName<br/>
+    @Html.LabelFor(m => m.PairOne.Role) : @Model.PairOne.Role<br/>
+     @Html.LabelFor(m => m.PairOne.Gender) : @Model.PairOne.Gender<br/><br/>
+    <img src='@Url.Action("show", "ManageProject", new { id = @Model.PairOne.ID })' width="200px" height="200px" />
+    </div>   
+    
+    <div style="float:left;padding-left:30px">
+    
+    <div style="float:left;clear:left;width:550px">
+    @foreach (var otherUsers in @Model.OtherUsers)
+    {
+         <div class="userpanelpairs" onmouseover="HighlightPairPanel(this);" onmouseout="UnHighlightPairPanel(this);" onclick="SelectPairPanel('@otherUsers.UserName',this)"> 
+               @Html.LabelFor(m => otherUsers.UserName) :  @otherUsers.UserName <br/>
+                @Html.LabelFor(m => otherUsers.Role) : @otherUsers.Role<br/>
+                 @Html.LabelFor(m => otherUsers.Gender) : @otherUsers.Gender<br/><br/>
+                <img src='@Url.Action("show", "ManageProject", new { id = otherUsers.ID })' width="50px" height="50px" />    
+         </div>
+    }
+    </div>
+    </div>
+    </div>
+}

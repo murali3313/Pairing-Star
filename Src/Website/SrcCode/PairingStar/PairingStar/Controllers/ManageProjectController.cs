@@ -286,6 +286,9 @@ namespace PairingStar.Controllers
             ViewBag.NotLonePairedInfo = notLonePairedPeople;
             ViewBag.LonePairedInfo = lonePairedPeople;
             ViewBag.ShowingAllData = shouldShowAllData;
+            var list = userArray.Select(model => model.UserName).ToList();
+            list.Insert(0,"Please choose one user");
+            ViewBag.UserNames = list;
 
             return View();
         }
@@ -323,5 +326,37 @@ namespace PairingStar.Controllers
 
         #endregion
 
+        public JsonResult GetPairingInfo(string pairName)
+        {
+            var dataRows = Repository.GetRepository().LoadData("Select * from t_pairingmatrix where pairone='"+pairName+"' OR pairtwo='"+pairName+"'").Rows.Cast<DataRow>();
+            var pairCollatedInfos = new List<PairCollatedInfo>();
+             var userArray = GetAllUserDetails().ToList();
+            var primaryPair = userArray.Find(model => model.UserName == pairName);
+            dataRows.ToList().ForEach(row =>
+                {
+                    var pairone = row["PAIRONE"].ToString();
+                    var pairtwo = row["PAIRTWO"].ToString();
+                    var secondPair = pairone == pairName ? userArray.Find(model => model.UserName == pairtwo) : userArray.Find(model => model.UserName == pairone);
+
+                    var alreadyAvailableTuple = pairCollatedInfos.Find(info => info.SecondPair == secondPair);
+                    if (alreadyAvailableTuple!=null)
+                    {
+                        alreadyAvailableTuple.WorkedFor += Convert.ToDouble(row["PAIRTIME"]);
+                    }
+                    else
+                    {
+                        var pairCollatedInfo = new PairCollatedInfo()
+                        {
+                            FirstPair = primaryPair,
+                            SecondPair = secondPair,
+                            WorkedFor = Convert.ToDouble(row["PAIRTIME"])
+                        };
+                        pairCollatedInfos.Add(pairCollatedInfo);    
+                    }
+                    
+                });
+
+            return new JsonResult() {Data = pairCollatedInfos,JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+        }
     }
 }
